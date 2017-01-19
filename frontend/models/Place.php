@@ -28,6 +28,16 @@ use Yii;
  */
 class Place extends \yii\db\ActiveRecord
 {
+    const TYPE_OTHER = 0;
+    const TYPE_RESTAURANT = 10;
+    const TYPE_COFFEESHOP = 20;
+    const TYPE_RESIDENCE = 30;
+    const TYPE_OFFICE = 40;
+    const TYPE_BAR = 50;
+
+    public $lat;
+    public $lng;
+
     /**
      * @inheritdoc
      */
@@ -95,4 +105,22 @@ class Place extends \yii\db\ActiveRecord
     {
         return $this->hasMany(UserPlace::className(), ['place_id' => 'id']);
     }
+
+    public function getPlaceType($data) {
+        $options = $this->getPlaceTypeOptions();
+        return $options[$data];
+    }
+
+    public function getPlaceTypeOptions()
+    {
+        return array(
+            self::TYPE_RESTAURANT => 'Restaurant',
+            self::TYPE_COFFEESHOP => 'Coffeeshop',
+            self::TYPE_RESIDENCE => 'Residence',
+            self::TYPE_OFFICE => 'Office',
+            self::TYPE_BAR => 'Bar',
+            self::TYPE_OTHER => 'Other'
+        );
+    }
+
 }

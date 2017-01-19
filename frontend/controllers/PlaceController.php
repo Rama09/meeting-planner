@@ -121,4 +121,19 @@ class PlaceController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    /**
+     * Creates a new Place model via Geolocation
+     */
+    public function actionCreate_geo()
+    {
+        $model = new Place();
+        if ($model->load(Yii::$app->request->post())) {
+
+        } else {
+            return $this->render('create_geo', [
+                'model' => $model,
+            ]);
+        }
+    }
 }

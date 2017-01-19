@@ -16,28 +16,23 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Place', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Add Place', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Add Current Location', ['create_geo'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Add a Google Place', ['create_place_google'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'name',
-            'place_type',
-            'status',
-            'google_place_id',
-            // 'created_by',
-            // 'created_at',
-            // 'updated_at',
-            // 'slug',
-            // 'website',
-            // 'full_address',
-            // 'vicinity',
-            // 'notes:ntext',
-
+            [
+                'attribute' => 'place_type',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return '<div>'.$model->getPlaceType($model->place_type).'</div>';
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
