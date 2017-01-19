@@ -16,6 +16,11 @@ use Yii;
  * @property integer $created_by
  * @property integer $created_at
  * @property integer $updated_at
+ * @property string $slug
+ * @property string $website
+ * @property string $full_address
+ * @property string $vicinity
+ * @property string $notes
  *
  * @property MeetingPlace[] $meetingPlaces
  * @property User $createdBy
@@ -37,9 +42,10 @@ class Place extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'google_place_id', 'created_by', 'created_at', 'updated_at'], 'required'],
+            [['name', 'google_place_id', 'created_by', 'created_at', 'updated_at', 'slug', 'website', 'full_address', 'vicinity'], 'required'],
             [['place_type', 'status', 'created_by', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'google_place_id'], 'string', 'max' => 255],
+            [['notes'], 'string'],
+            [['name', 'google_place_id', 'slug', 'website', 'full_address', 'vicinity'], 'string', 'max' => 255],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
         ];
     }
@@ -58,6 +64,11 @@ class Place extends \yii\db\ActiveRecord
             'created_by' => 'Created By',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+            'slug' => 'Slug',
+            'website' => 'Website',
+            'full_address' => 'Full Address',
+            'vicinity' => 'Vicinity',
+            'notes' => 'Notes',
         ];
     }
 
