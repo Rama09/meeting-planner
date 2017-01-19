@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\PlaceSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Places';
+$this->title = Yii::t('app', 'Places');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="place-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Add Place', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Place'), ['create'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Add Current Location', ['create_geo'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Add a Google Place', ['create_place_google'], ['class' => 'btn btn-success']) ?>
     </p>

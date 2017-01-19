@@ -66,19 +66,19 @@ class Place extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'place_type' => 'Place Type',
-            'status' => 'Status',
-            'google_place_id' => 'Google Place ID',
-            'created_by' => 'Created By',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'slug' => 'Slug',
-            'website' => 'Website',
-            'full_address' => 'Full Address',
-            'vicinity' => 'Vicinity',
-            'notes' => 'Notes',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
+            'place_type' => Yii::t('app', 'Place Type'),
+            'status' => Yii::t('app', 'Status'),
+            'google_place_id' => Yii::t('app', 'Google Place ID'),
+            'created_by' => Yii::t('app', 'Created By'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
+            'slug' => Yii::t('app', 'Slug'),
+            'website' => Yii::t('app', 'Website'),
+            'full_address' => Yii::t('app', 'Full Address'),
+            'vicinity' => Yii::t('app', 'Vicinity'),
+            'notes' => Yii::t('app', 'Notes'),
         ];
     }
 
